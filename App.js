@@ -5,8 +5,6 @@ import { hs, vs } from './Metrics';
 
 
 export default function App() {
-
-  
   
 
   const [ canGoBack, setCanGoBack ] = useState(false)
@@ -77,4 +75,3 @@ const styles = StyleSheet.create({
 
   }
 })
-
