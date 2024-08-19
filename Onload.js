@@ -1,6 +1,6 @@
-import { View, Text, StyleSheet } from 'react-native'
-import React, { useEffect, useState } from 'react'
-import { hs, ms, vs } from './Metrics'
+import React, { useEffect, useState } from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+import { hs, ms, vs } from './Metrics';
 
 export default function Onload({navigation}) {
 
