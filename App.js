@@ -1,10 +1,16 @@
-import { useRef, useState } from 'react';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import WebView from 'react-native-webview';
-import { hs, vs } from './Metrics';
+import React from "react";
+import Webview from "./Webview";
+import Onload from "./Onload";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+
+
+const Stack = createNativeStackNavigator();
+
 
 
 export default function App() {
+<<<<<<< HEAD
   
 
   const [ canGoBack, setCanGoBack ] = useState(false)
@@ -75,3 +81,14 @@ const styles = StyleSheet.create({
 
   }
 })
+=======
+  return(
+    <NavigationContainer >
+      <Stack.Navigator screenOptions={ {headerShown:false} } initialRouteName="Onload" >
+        <Stack.Screen name="Onload" component={Onload} />
+        <Stack.Screen name="Webview" component={Webview} />
+    </Stack.Navigator>
+    </NavigationContainer>
+  )
+}
+>>>>>>> 35bceae0b3d9b21dfc4a2ce3131e34fc182d93ae
