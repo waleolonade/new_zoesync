@@ -58,8 +58,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     paddingHorizontal: hs(10),
-    // marginBottom: 10,
-    top:vs(760)
+    // margininset-block-end: 10,
+    inset-block-start:vs(760)
   },
   btn:{
     paddingVertical: vs(12),
