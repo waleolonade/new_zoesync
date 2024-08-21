@@ -8,10 +8,11 @@ import { Platform } from 'react-native';
 
 const Stack = createNativeStackNavigator();
 
-Platform.OS === "android" && StatusBar.setBackgroundColor("transparent");
-Platform.OS === "android" && StatusBar.setTranslucent(true);
+
 
 export default function App() {
+  // Platform.OS === "android" && StatusBar.setBackgroundColor("transparent");
+  // Platform.OS === "android" && StatusBar.setTranslucent(true);
   return (
     
     <NavigationContainer>
@@ -19,7 +20,7 @@ export default function App() {
         <Stack.Screen name='Onload' component={Onload} />
         <Stack.Screen name='Webview' component={Webview} />
       </Stack.Navigator>
-      {/* <StatusBar style='light' /> */}
+      <StatusBar style='light' />
     </NavigationContainer>
   )
 }
