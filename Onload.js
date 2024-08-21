@@ -20,7 +20,7 @@ export default function Onload({navigation}) {
                     const result = ()=> navigation.navigate('Webview')
                     setData(result);
                     setIsLoading(false);
-                }, 5000  )
+                }, 2000  )
             } catch (error) {
                 setError(error)
                 setIsLoading(false);
@@ -29,12 +29,12 @@ export default function Onload({navigation}) {
         fetchedData()
     }, [] )
 
-    // useEffect( ()=>{
-    //     const time = setTimeout( ()=>{
-    //         navigation.navigate('Webview')
-    //     }, 2000 ) 
-    //     // clearTimeout(time)
-    // }, [] )
+    useEffect( ()=>{
+        const time = setTimeout( ()=>{
+            navigation.navigate('Webview')
+        }, 2000 ) 
+        // clearTimeout(time)
+    }, [] )
     
   return (
     <View style={styles.container} >
@@ -71,25 +71,31 @@ const styles = StyleSheet.create({
         fontWeight: '700'
     },
     leftCont:{
-        backgroundColor:'white',
+        backgroundColor:'#57dd57',
         height:'100%',
         width:'50%'
     },
     rightCont:{
-        backgroundColor:'green',
+        backgroundColor:'#61f661',
         height:'100%',
         width:'50%'
     },
     zoe:{
         marginVertical:'auto',
         textAlign:'right',
-        fontSize:ms(40),
-        color:'green'
+        fontSize:ms(45),
+        color:'black',
+        fontWeight:'800',
+        borderBottomWidth:8,
+        
     },
     sync:{
         marginVertical:'auto',
         fontSize:ms(40),
-        color:'white'
+        color:'white',
+        borderTopWidth:8,
+        borderColor:'black',
+        fontWeight:'700'
     },
     isL:{
         position:'absolute',
