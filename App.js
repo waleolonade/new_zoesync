@@ -3,9 +3,13 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import React from 'react'
 import Onload from './Onload';
 import Webview from './Webview';
+import { StatusBar } from 'expo-status-bar';
+import { Platform } from 'react-native';
 
 const Stack = createNativeStackNavigator();
 
+Platform.OS === "android" && StatusBar.setBackgroundColor("transparent");
+Platform.OS === "android" && StatusBar.setTranslucent(true);
 
 export default function App() {
   return (
@@ -15,7 +19,7 @@ export default function App() {
         <Stack.Screen name='Onload' component={Onload} />
         <Stack.Screen name='Webview' component={Webview} />
       </Stack.Navigator>
-      
+      {/* <StatusBar style='light' /> */}
     </NavigationContainer>
   )
 }
