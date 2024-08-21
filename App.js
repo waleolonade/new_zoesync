@@ -1,29 +1,14 @@
-import { useRef, useState } from 'react';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import WebView from 'react-native-webview';
-import { hs, vs } from './Metrics';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import React from 'react'
+import Onload from './Onload';
+import Webview from './Webview';
 
+const Stack = createNativeStackNavigator();
 
 export default function App() {
-  
-
-  const [ canGoBack, setCanGoBack ] = useState(false)
-  const [ canGOFront, setCanGoFront ] = useState(false)
-  const [currentView,setCurrentView ] = useState('') ;
-
-  const webviewRef = useRef(null)
-
-  back = () => {
-    if (webviewRef.current) webviewRef.current.goBack()
-  }
-  
-  front = () => {
-    if (webviewRef.current) webviewRef.current.goForward()
-  }
-
-
-
   return (
+<<<<<<< HEAD
    <View style={{flex:1}} > 
    
      <WebView
@@ -71,3 +56,13 @@ const styles = StyleSheet.create({
 
   }
 })
+=======
+    <NavigationContainer>
+      <Stack.Navigator screenOptions={{headerShown:false}} >
+        <Stack.Screen name='Onload' component={Onload} />
+        <Stack.Screen name='Webview' component={Webview} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  )
+}
+>>>>>>> 070f2f50516c3fb733e770dffecd19e915a7bdaa
