@@ -8,33 +8,33 @@ export default function Onload({navigation}) {
     const [data, setData] = useState(null);
     const [error, setError] = useState(null);
 
-    // useEffect( ()=>{
-    //     // simulate URL load
-    //     const fetchedData = async()=>{
-    //         try{
-    //             setTimeout(async()=>{
-    //                 const res = await fetch('https://zoesync.com.ng/login');
-    //                 if(!res.ok){
-    //                     throw new Error('Network request fails, please check your internet connection')
-    //                 } 
-    //                 const result = ()=> navigation.navigate('Webview')
-    //                 setData(result);
-    //                 setIsLoading(false);
-    //             }, 2000  )
-    //         } catch (error) {
-    //             setError(error)
-    //             setIsLoading(false);
-    //         }
-    //     }
-    //     fetchedData()
-    // }, [] )
+    useEffect( ()=>{
+        // simulate URL load
+        const fetchedData = async()=>{
+            try{
+                setTimeout(async()=>{
+                    const res = await fetch('https://zoesync.com.ng/login');
+                    if(!res.ok){
+                        throw new Error('Network request fails, please check your internet connection')
+                    } 
+                    const result = ()=> navigation.navigate('Webview')
+                    setData(result);
+                    setIsLoading(false);
+                }, 2000  )
+            } catch (error) {
+                setError(error)
+                setIsLoading(false);
+            }
+        }
+        fetchedData()
+    }, [] )
 
-    // useEffect( ()=>{
-    //     const time = setTimeout( ()=>{
-    //         navigation.navigate('Webview')
-    //     }, 2000 ) 
-    //     // clearTimeout(time)
-    // }, [] )
+    useEffect( ()=>{
+        const time = setTimeout( ()=>{
+            navigation.navigate('Webview')
+        }, 2000 ) 
+        // clearTimeout(time)
+    }, [] )
     
   return (
     <View style={styles.container} >
