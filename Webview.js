@@ -1,11 +1,12 @@
-import React from "react";
-import { useEffect, useRef, useState } from 'react';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import React, { useEffect, useRef, useState } from "react";
+import { Alert, BackHandler, StyleSheet, Text, ToastAndroid, TouchableOpacity, View } from 'react-native';
 import WebView from 'react-native-webview';
 import { hs, vs } from './Metrics';
 
 
 const Webview = ()=>{
+
+  ToastAndroid
 
 const [ canGoBack, setCanGoBack ] = useState(false)
 const [ canGOFront, setCanGoFront ] = useState(false)
@@ -19,7 +20,31 @@ back = () => {
 
 front = () => {
   if (webviewRef.current) webviewRef.current.goForward()
-}
+};
+
+
+useEffect(() => {
+  const backAction = () => {
+    // ToastAndroid.show("Exiting the app", ToastAndroid.SHORT);
+    // BackHandler.exitApp();
+    Alert.alert('You want to exit App ?', 'if no, press cancel', [
+      {
+        text: 'Cancel',
+        onPress: ()=> null,
+        style: 'cancel'
+      },
+      {
+        text: 'Yes',
+        onPress:()=> BackHandler.exitApp()
+      }
+    ] )
+    return true;
+  };
+
+  const backHandler = BackHandler.addEventListener('hardwareBackPress', backAction);
+
+ return () => backHandler.remove(); // Cleanup the backHandler on component unmount
+}, []);
 
 return (
  <View style={{flex:1}} > 
