@@ -13,18 +13,22 @@
     },
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.deyink.zoesync"
+      "bundleIdentifier": "com.deyink.zoesync",
+      "runtimeVersion": {
+        "policy": "appVersion"
+      }
     },
     "android": {
-        "buildProperties": {
-          "enableProguardInReleaseBuilds": true,
-          "enableShrinkResourcesInReleaseBuilds": true
-        },
+      "buildProperties": {
+        "enableProguardInReleaseBuilds": true,
+        "enableShrinkResourcesInReleaseBuilds": true
+      },
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.deyink.zoesync"
+      "package": "com.deyink.zoesync",
+      "runtimeVersion": "1.0.0"
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -37,6 +41,9 @@
     "owner": "deyink",
     "plugins": [
       "expo-build-properties"
-    ]
+    ],
+    "updates": {
+      "url": "https://u.expo.dev/f3a29a91-50d8-4a1f-869e-9bdb3c380d04"
+    }
   }
 }
