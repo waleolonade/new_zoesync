@@ -1,6 +1,40 @@
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Alert, StyleSheet, Text, View } from 'react-native';
 import { hs, ms, vs } from './Metrics';
+import * as Updates from 'expo-updates';
+
+// check for Update function
+async function checkForUpdates() {
+  try {
+    const update = await Updates.checkForUpdateAsync();
+    if (update.isAvailable) {
+      Alert.alert('An update is available', 'Update now?', [
+        {
+          text: 'No',
+          onPress: () => null,
+          style: 'cancel',
+        },
+        {
+          text: 'Yes',
+          onPress: async () => {
+            try {
+              await Updates.fetchUpdateAsync();
+              await Updates.reloadAsync(); // This will restart the app to apply the update
+            } catch (error) {
+              console.error('Error updating the app:', error);
+            }
+          },
+        },
+      ]);
+    }
+  } catch (error) {
+    console.error('Error checking for updates:', error);
+  }
+}
+
+  
+
+
 
 export default function Onload({navigation}) {
 
@@ -32,6 +66,7 @@ export default function Onload({navigation}) {
     useEffect( ()=>{
         const time = setTimeout( ()=>{
             navigation.navigate('Webview')
+            checkForUpdates();
         }, 2000 ) 
         // clearTimeout(time)
     }, [] )

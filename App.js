@@ -9,6 +9,7 @@ const Stack = createNativeStackNavigator();
 
 
 
+
 export default function App() {
   // Platform.OS === "android" && StatusBar.setBackgroundColor("transparent");
   // Platform.OS === "android" && StatusBar.setTranslucent(true);
